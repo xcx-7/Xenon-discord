@@ -1376,25 +1376,41 @@ function splitMessage(message, maxLength = 300) {
   return parts;
 }
 
-let messageCounter = 0;  
-let randomMessage = Math.floor(Math.random() * 2) + 1;
+// let messageCounter = 0;  
+// let randomMessage = Math.floor(Math.random() * 4) + 1;
+
+// function shouldRespond() {
+//   messageCounter += 1;
+
+//   if (messageCounter === randomMessage) {
+//     messageCounter = 0; 
+//     randomMessage = Math.floor(Math.random() * 4) + 1; 
+//     return true;
+//   }
+
+//   if (messageCounter >= 4) {
+//     messageCounter = 0;
+//     randomMessage = Math.floor(Math.random() * 4) + 1;
+//   }
+
+//   return false;
+// }
+
+
+
+let messageCounter = 0;
 
 function shouldRespond() {
   messageCounter += 1;
 
-  if (messageCounter === randomMessage) {
-    messageCounter = 0; 
-    randomMessage = Math.floor(Math.random() * 2) + 1; 
+  if (messageCounter % 4 === 0) {
     return true;
-  }
-
-  if (messageCounter >= 4) {
-    messageCounter = 0;
-    randomMessage = Math.floor(Math.random() * 2) + 1;
   }
 
   return false;
 }
+
+
 
 client.on('guildMemberAdd', member => {
   member.guild.channels.cache.find(channel => channel.name === "general").send(`Welcome to the server, ${member.user.tag}!`);
