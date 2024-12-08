@@ -1374,42 +1374,42 @@ function splitMessage(message, maxLength = 300) {
 
 //
 
-// let messageCounter = 0;  
-// let randomMessage = Math.floor(Math.random() * 4) + 1;
-
-// function shouldRespond() {
-//   messageCounter += 1;
-
-//   if (messageCounter === randomMessage) {
-//     messageCounter = 0; 
-//     randomMessage = Math.floor(Math.random() * 4) + 1; 
-//     return true;
-//   }
-
-//   if (messageCounter >= 4) {
-//     messageCounter = 0;
-//     randomMessage = Math.floor(Math.random() * 4) + 1;
-//   }
-
-//   return false;
-// }
-
-
-
-let messageCounter = 0;
-let randomThreshold = Math.floor(Math.random() * 4) + 1; // Randomly pick a threshold between 1 and 4
+let messageCounter = 0;  
+let randomMessage = Math.floor(Math.random() * 4) + 1;
 
 function shouldRespond() {
   messageCounter += 1;
 
-  if (messageCounter === randomThreshold) {
-    messageCounter = 0; // Reset the counter
-    randomThreshold = Math.floor(Math.random() * 4) + 1; // Generate a new random threshold
+  if (messageCounter === randomMessage) {
+    messageCounter = 0; 
+    randomMessage = Math.floor(Math.random() * 4) + 1; 
     return true;
+  }
+
+  if (messageCounter >= 4) {
+    messageCounter = 0;
+    randomMessage = Math.floor(Math.random() * 4) + 1;
   }
 
   return false;
 }
+
+
+
+// let messageCounter = 0;
+// let randomThreshold = Math.floor(Math.random() * 4) + 1; // Randomly pick a threshold between 1 and 4
+
+// function shouldRespond() {
+//   messageCounter += 1;
+
+//   if (messageCounter === randomThreshold) {
+//     messageCounter = 0; // Reset the counter
+//     randomThreshold = Math.floor(Math.random() * 4) + 1; // Generate a new random threshold
+//     return true;
+//   }
+
+//   return false;
+// }
 
 
 
