@@ -1376,6 +1376,8 @@ function splitMessage(message, maxLength = 300) {
   return parts;
 }
 
+//
+
 // let messageCounter = 0;  
 // let randomMessage = Math.floor(Math.random() * 4) + 1;
 
