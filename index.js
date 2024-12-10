@@ -39,7 +39,7 @@
 // Here's the conversation:
 // ${conversationHistory}
 // Bot:`;
-
+//
 //   try {
 //     const result = await model.generateContent(adjustedPrompt);
 //     const response = result.response.text();
