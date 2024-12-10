@@ -1408,6 +1408,49 @@ client.on('guildMemberAdd', member => {
   member.guild.channels.cache.find(channel => channel.name === "general").send(`Welcome to the server, ${member.user.tag}!`);
 });
 
+// client.on('messageCreate', async (message) => {
+//   if (message.author.bot || message.content.startsWith('!')) return;
+
+//   const isMoon = message.author.id === moonUserId;
+//   const messageContentLower = message.content.toLowerCase();
+
+//   let user = await User.findOne({ userId: message.author.id });
+
+//   if (!user) {
+//     user = new User({
+//       userId: message.author.id,
+//       username: message.author.username,
+//     });
+//     await user.save();
+//   }
+
+
+//   const mentionsMatrix = messageContentLower.includes('xenon') || messageContentLower.includes('@xenon') || message.mentions.has(client.user);
+
+//   let respond = false;
+
+//   if (mentionsMatrix) {
+//     respond = true;
+//   } else if (shouldRespond()) {
+//     respond = true;
+//   }
+
+//   if (respond) {
+//     const response = await generateResponse(message.content, isMoon, message.author.id);
+
+//     if (response.length > 400) {
+//       const responseParts = splitMessage(response);
+//       for (const part of responseParts) {
+//         await message.reply(part);
+//       }
+//     } else {
+//       message.reply(response);
+//     }
+//   }
+
+
+// });
+
 client.on('messageCreate', async (message) => {
   if (message.author.bot || message.content.startsWith('!')) return;
 
@@ -1424,11 +1467,13 @@ client.on('messageCreate', async (message) => {
     await user.save();
   }
 
-
-  const mentionsMatrix = messageContentLower.includes('xenon') || messageContentLower.includes('@xenon') || message.mentions.has(client.user);
+  const mentionsMatrix = messageContentLower.includes('xenon') || 
+                         messageContentLower.includes('@xenon') || 
+                         message.mentions.has(client.user);
 
   let respond = false;
 
+  // Respond to mentions or randomly to other users
   if (mentionsMatrix) {
     respond = true;
   } else if (shouldRespond()) {
@@ -1447,9 +1492,9 @@ client.on('messageCreate', async (message) => {
       message.reply(response);
     }
   }
-
-
 });
+
+
 
 keepAlive();
 client.login(process.env.DISCORD_TOKEN);
