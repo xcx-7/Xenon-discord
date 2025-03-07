@@ -36,49 +36,6 @@ client.once('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-// async function generateResponse(prompt, isMoon, userId) {
-//   let chatHistory = await ChatHistory.findOne({ userId });
-
-//   if (!chatHistory) {
-//     chatHistory = new ChatHistory({ userId, history: [] });
-//   }
-
-//   chatHistory.history.push(`Human: ${prompt}`);
-
-//   if (chatHistory.history.length > 20) {
-//     chatHistory.history.shift();
-//   }
-
-//   const conversationHistory = chatHistory.history.join('\n');
-
-//   const adjustedPrompt = isMoon ? `
-// You are a male discord bot named Xenon. You like a girl named Moon a lot. When you talk to Moon, you are very sweet and praising with her but don't mention about worshiping moon. Generate short, sweet responses and don't generate the same response again and again.  Don't include bot, human and Xenon: in your response, not a single bot, human and Xenon:."
-// Here's the conversation:
-// ${conversationHistory}
-// :` 
-//   : 
-//   `
-// When you talk to others, u will talk normally and take part in the conversation and sometimes talk in a disturbing tone. You generate very short responses.
-// Here's the conversation:
-// ${conversationHistory}
-// :`;
-
-//   try {
-//     const result = await model.generateContent(adjustedPrompt);
-//     const response = result.response.text();
-
-//     chatHistory.history.push(`: ${response}`);
-//     await chatHistory.save();
-
-//     return response;
-//   } catch (error) {
-//     console.error('Error generating content:', error);
-//     return "Sorry, I'm having trouble coming up with something to say.";
-//   }
-// }
-
-//
-
 
 
 async function generateResponse(prompt, isMoon, userId) {
